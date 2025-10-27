@@ -2,7 +2,8 @@ import { QdrantClient } from '@qdrant/js-client-rest';
 import { pipeline } from '@xenova/transformers';
 
 // 🔹 Conectamos al Qdrant local
-const client = new QdrantClient({ url: 'http://localhost:6333' });
+const client = new QdrantClient({ url: 'http://localhost:6333'
+apiKey: process.env.QDRANT_API_KEY,});
 
 // 🔹 Creamos (si no existe) una colección para tus embeddings
 await client.createCollection('preguntas_respuestas', {
